@@ -20,5 +20,25 @@
         <button type="submit" class="btn btn-primary">Crear nueva tarea</button>
        </div>
       </form>
+
+      <div>
+        @foreach ($tareas as $tarea)
+            <div class="row py-1">
+
+              <div class="col-md-9 d-flex align-items-center">
+                <a href="{{ route('tareas-edit', ['id' => $tarea->id] ) }}">{{$tarea->title}}</a>
+              </div>
+
+            <div class="col-md-3 d-flex justify-content-end">
+              <form action="{{ route('tareas-destroy',[$tarea->id]) }}" method="POST">
+                @method('DELETE')
+                @csrf
+                <button class="btn btn-danger btn-sm">Eliminar</button>
+              </form>
+            </div>
+
+            </div>
+        @endforeach
+      </div>
 </div>
 @endsection
