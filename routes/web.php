@@ -18,8 +18,12 @@ Route::get('/', function () {
     return view('tareas.index');
 });
 
-Route::get('/tareas', function () {
-    return view('tareas.index');
-})->name('tareas');
+Route::get('/tareas',[tareasController::class,'index'])->name('tareas');
 
 Route::post('/tareas',[tareasController::class,'store'])->name('tareas');
+
+Route::get('/tareas',[tareasController::class,'store'])->name('tareas-show');
+
+Route::patch('/tareas',[tareasController::class,'store'])->name('tareas-update');
+
+Route::delete('/tareas',[tareasController::class,'store'])->name('tareas-destroy');
