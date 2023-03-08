@@ -32,4 +32,19 @@ class tareasController extends Controller
       $tareas=tarea::all();
       return view('tareas.index',['tareas'=>$tareas]);
      }
+
+     public function show($id){
+      $tarea=tarea::find($id);
+      return view('tareas.show',['tarea'=>$tarea]);
+     }
+
+     public function update(){
+      $tareas=tarea::all();
+      return view('tareas.index',['tareas'=>$tareas]);
+     }
+
+     public function delete(){
+      $tareas=tarea::all();
+      return view('tareas.index',['tareas'=>$tareas]);
+     }
 }
