@@ -22,8 +22,8 @@ Route::get('/tareas',[tareasController::class,'index'])->name('tareas');
 
 Route::post('/tareas',[tareasController::class,'store'])->name('tareas');
 
-Route::get('/tareas',[tareasController::class,'store'])->name('tareas-show');
+Route::get('/tareas?id={id}',[tareasController::class,'show'])->name('tareas-show');
 
-Route::patch('/tareas',[tareasController::class,'store'])->name('tareas-update');
+Route::patch('/tareas',[tareasController::class,'store'])->name('tareas-edit');
 
 Route::delete('/tareas',[tareasController::class,'store'])->name('tareas-destroy');
