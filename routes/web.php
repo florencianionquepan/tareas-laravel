@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\tareasController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,5 @@ Route::get('/', function () {
 Route::get('/tareas', function () {
     return view('tareas.index');
 });
+
+Route::post('/tareas',[tareasController::class,'store'])->name('lista');
