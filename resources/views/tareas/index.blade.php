@@ -26,7 +26,7 @@
             <div class="row py-1">
 
               <div class="col-md-9 d-flex align-items-center">
-                <a href="{{ route('tareas-edit', ['id' => $tarea->id] ) }}">{{$tarea->title}}</a>
+                <a href="{{ route('tareas-show', ['id' => $tarea->id] ) }}">{{$tarea->title}}</a>
               </div>
 
             <div class="col-md-3 d-flex justify-content-end">
