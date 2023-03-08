@@ -15,11 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('tareas.index');
 });
 
 Route::get('/tareas', function () {
     return view('tareas.index');
-});
+})->name('tareas');
 
-Route::post('/tareas',[tareasController::class,'store'])->name('lista');
+Route::post('/tareas',[tareasController::class,'store'])->name('tareas');
