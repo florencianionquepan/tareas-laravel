@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoriasController;
 use App\Http\Controllers\tareasController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,3 +28,5 @@ Route::get('/tareas/{id}',[tareasController::class,'show'])->name('tareas-show')
 Route::patch('/tareas/{id}',[tareasController::class,'update'])->name('tareas-update');
 
 Route::delete('/tareas/{id}',[tareasController::class,'destroy'])->name('tareas-destroy');
+
+Route::resource('categorias',CategoriasController::class);
