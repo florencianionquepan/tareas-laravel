@@ -38,9 +38,12 @@ class tareasController extends Controller
       return view('tareas.show',['tarea'=>$tarea]);
      }
 
-     public function update(){
-      $tareas=tarea::all();
-      return view('tareas.index',['tareas'=>$tareas]);
+     public function update(Request $request,$id){
+      $tarea=tarea::find($id);
+      $tarea->title=$request->title;
+      $tarea->save();
+      //dd($tarea);
+      return redirect()->route('tareas')->with('success','Tarea actualizada ok');
      }
 
      public function delete(){
