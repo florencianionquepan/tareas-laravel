@@ -17,12 +17,19 @@ class tareasController extends Controller
 
      public function store(Request $request){
         
-        $request->validate(['title'=>"required|min:3"]);
+        $request->validate([
+         'title'=>"required|min:3"
+         ]);
 
         $tarea=new tarea;
         $tarea->title=$request->title;
         $tarea->save();
 
-        return redirect()->route('lista')->with('success','Tarea creada ok');
+        return redirect()->route('tareas')->with('success','Tarea creada ok');
+     }
+
+     public function index(){
+      $tareas=tarea::all();
+      return view('tareas.index',['tareas'=>$tareas]);
      }
 }
