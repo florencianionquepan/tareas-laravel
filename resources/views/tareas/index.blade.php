@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('content')
-<div class="container w-25 border rounded border-primary my-5 p-2">
+<div class="container w-25 border rounded border-secondary my-5 p-2">
     <form action="{{route('tareas')}}" method="POST">
       @csrf
 
