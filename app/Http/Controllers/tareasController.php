@@ -46,8 +46,9 @@ class tareasController extends Controller
       return redirect()->route('tareas')->with('success','Tarea actualizada ok');
      }
 
-     public function delete(){
-      $tareas=tarea::all();
-      return view('tareas.index',['tareas'=>$tareas]);
+     public function destroy($id){
+      $tarea=tarea::find($id);
+      $tarea->delete();
+      return redirect()->route('tareas')->with('success','Tarea eliminada ok');
      }
 }
