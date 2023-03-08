@@ -47,15 +47,21 @@ class CategoriasController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $categoria=Categoria::find($id);
+        return view('categorias.show',['categoria'=>$categoria]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Request $request,string $id)
     {
-        //
+        $categoria=Categoria::find($id);
+        $categoria->name=$request->name;
+        $categoria->color=$request->color;
+        $categoria->save();
+
+        return redirect()->route('categorias.index')->with('success','Categoria actualizada ok');
     }
 
     /**
@@ -71,6 +77,9 @@ class CategoriasController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $categoria=Categoria::find($id);
+        $categoria->delete();
+
+        return redirect()->route('categorias.index')->with('success','Categoria eliminada');
     }
 }
