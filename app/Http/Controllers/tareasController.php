@@ -22,5 +22,7 @@ class tareasController extends Controller
         $tarea=new tarea;
         $tarea->title=$request->title;
         $tarea->save();
+
+        return redirect()->route('lista')->with('success','Tarea creada ok');
      }
 }
