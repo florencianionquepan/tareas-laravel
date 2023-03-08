@@ -2,7 +2,8 @@
 
 @section('content')
 <div class="container w-25 border rounded border-primary my-5 p-2">
-    <form action="{{ route('tareas-edit',['id'=> $tarea->id]) }}" method="POST">
+    <form action="{{ route('tareas-update',['id'=> $tarea->id]) }}" method="POST">
+      @method('PATCH')
       @csrf
 
       @if (session('success'))
