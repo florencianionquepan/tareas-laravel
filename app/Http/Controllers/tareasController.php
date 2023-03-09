@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categoria;
 use App\Models\tarea;
 use Illuminate\Http\Request;
 
@@ -30,7 +31,8 @@ class tareasController extends Controller
 
      public function index(){
       $tareas=tarea::all();
-      return view('tareas.index',['tareas'=>$tareas]);
+      $categorias=Categoria::all();
+      return view('tareas.index',['tareas'=>$tareas, 'categorias'=>$categorias]);
      }
 
      public function show($id){
