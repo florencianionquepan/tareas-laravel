@@ -77,7 +77,11 @@ class CategoriasController extends Controller
      */
     public function destroy(string $id)
     {
+
         $categoria=Categoria::find($id);
+        $categoria->tareas()->each(function($tar){
+            $tar->delete();
+        });
         $categoria->delete();
 
         return redirect()->route('categorias.index')->with('success','Categoria eliminada');
