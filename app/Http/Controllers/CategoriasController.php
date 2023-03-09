@@ -56,12 +56,7 @@ class CategoriasController extends Controller
      */
     public function edit(Request $request,string $id)
     {
-        $categoria=Categoria::find($id);
-        $categoria->name=$request->name;
-        $categoria->color=$request->color;
-        $categoria->save();
-
-        return redirect()->route('categorias.index')->with('success','Categoria actualizada ok');
+        
     }
 
     /**
@@ -69,7 +64,12 @@ class CategoriasController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $categoria=Categoria::find($id);
+        $categoria->name=$request->name;
+        $categoria->color=$request->color;
+        $categoria->save();
+
+        return redirect()->route('categorias.index')->with('success','Categoria actualizada ok');
     }
 
     /**
