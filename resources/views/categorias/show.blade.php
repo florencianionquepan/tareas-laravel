@@ -34,19 +34,22 @@
 
         <div>
             @if($categoria->tareas->count()>0)
-                <div class="row py-2">
-                    <div class="col-md-9 d-flex align-items-center">
-                        <a href="{{ route('tareas-show', ['id' => $tarea->id] ) }}">{{$tarea->title}}</a>
-                      </div>
-        
-                    <div class="col-md-3 d-flex justify-content-end">
-                      <form action="{{ route('tareas-destroy',[$tarea->id]) }}" method="POST">
-                        @method('DELETE')
-                        @csrf
-                        <button class="btn btn-danger btn-sm">Eliminar</button>
-                      </form>
-                    </div>
+            @foreach ($categoria->tareas as $tarea)
+            <div class="row py-2">
+                <div class="col-md-9 d-flex align-items-center">
+                    <a href="{{ route('tareas-show', ['id' => $tarea->id] ) }}">{{$tarea->title}}</a>
+                  </div>
+    
+                <div class="col-md-3 d-flex justify-content-end">
+                  <form action="{{ route('tareas-destroy',[$tarea->id]) }}" method="POST">
+                    @method('DELETE')
+                    @csrf
+                    <button class="btn btn-danger btn-sm">Eliminar</button>
+                  </form>
                 </div>
+            </div>
+            @endforeach
+                
             @else
                 No hay tareas para la categoria
             @endif
