@@ -20,9 +20,11 @@
         <div class="mb-3">
           <label for="categoria_id" class="form-label">Categoria</label>
           <select name="categoria_id" class="form-select">
+            @if(isset($categorias))
             @foreach ($categorias as $cat)
               <option value="{{$cat->id}}">{{$cat->name}}</option>
             @endforeach
+            @endif
           </select>
         </div>
 
@@ -33,6 +35,7 @@
       </form>
 
       <div>
+        @if(isset($categorias))
         @foreach ($tareas as $tarea)
             <div class="row py-1">
 
@@ -50,6 +53,7 @@
 
             </div>
         @endforeach
+        @endif
       </div>
 </div>
 @endsection
